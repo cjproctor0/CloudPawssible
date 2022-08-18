@@ -4,4 +4,4 @@ EXPOSE 80
 
 COPY ./index.html /usr/share/nginx/html
 
-CMD ["systemctl", "status", "nginx"]
+# CMD ["systemctl", "status", "nginx"]
