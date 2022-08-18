@@ -7,20 +7,16 @@ pipeline {
                 echo "building web app..."
             }
         }
-    }
 
-    stages {
         stage("test") {
             steps {
-                echo "test the web app..."
+                echo "testing web app..."
             }
         }
-    }
 
-    stages {
         stage("deploy") {
             steps {
-                echo "deploying the web app..."
+                echo "deploying web app..."
             }
         }
     }
