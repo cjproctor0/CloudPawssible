@@ -24,13 +24,15 @@ pipeline {
             steps {
                 echo "deploying web app..."
                 script {
-                    def shellCmd = "bash ./server-cmds.sh hyrollproctor/my-repo:${IMAGE_NAME}"
-                    def ec2Instance = "ec2-user@54.241.85.48"
+                    //def shellCmd = "bash ./server-cmds.sh hyrollproctor/my-repo:${IMAGE_NAME}"
+                    def dockerCmd = 'docker run -p 80:80 -d hyrollproctor/my-repo:webapp-1.1'
+                    def ec2Instance = "ec2-user@54.227.77.200"
 
-                    sshagent(['ec2-server-key']) {
-                        sh "scp -o StrictHostKeyChecking=no server-cmds.sh ${ec2Instance}:/home/ec2-user"
-                        sh "scp -o StrictHostKeyChecking=no docker-compose.yaml ${ec2Instance}:/home/ec2-user"
-                        sh "ssh -o StrictHostKeyChecking=no ${ec2Instance} ${shellCmd}"
+                    sshagent(['ec2-server-key']) {  // name in Jenkins credential store
+                        sh "scp -o StrictHostKeyChecking=no ${ec2Instance} ${dockerCmd}"
+                        //sh "scp -o StrictHostKeyChecking=no server-cmds.sh ${ec2Instance}:/home/ec2-user"
+                        //sh "scp -o StrictHostKeyChecking=no docker-compose.yaml ${ec2Instance}:/home/ec2-user"
+                        //sh "ssh -o StrictHostKeyChecking=no ${ec2Instance} ${shellCmd}"
                     }
                 }
             }
