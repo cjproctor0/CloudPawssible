@@ -1,7 +1,5 @@
-FROM nginx
+FROM nginx:alpine
 
-EXPOSE 80
-
-COPY ./index.html /usr/share/nginx/html
+COPY ./index.html /usr/share/nginx/html/index.html
 
 # CMD ["systemctl", "status", "nginx"]
