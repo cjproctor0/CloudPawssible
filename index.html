@@ -1,7 +1,7 @@
 <html>
 	<script>
 		async function getMessages() {
-			fetch( 'https://4zafa8uptb.execute-api.us-east-1.amazonaws.com/prod/message',  {
+			fetch( 'INSERT API GATEWAY LINK HERE',  {
 				method: 'GET'
 			  })
 			.then(response => response.json())
@@ -20,7 +20,7 @@
             var sprayedNeutered = document.getElementById("sprayedNeutered").value;
             var rabiesVaccine = document.getElementById("rabiesVaccine").value;
             var bordetellaVaccine = document.getElementById("bordetellaVaccine").value;
-			fetch( 'https://4zafa8uptb.execute-api.us-east-1.amazonaws.com/prod/message',  {
+			fetch( 'INSERT API GATEWAY LINK HERE',  {
                 method: 'POST',
                 body: JSON.stringify({
                     "firstName": firstName,
@@ -59,7 +59,7 @@
       -->
       <form class="row g-3" onsubmit="submitMessage();return false;">
         <div class="col-md-6">
-          <label for="firstName" class="form-label">First Name</label>
+          <label for="firstName" class="form-label">Customer First Name</label>
           <input type="text" class="form-control" id="firstName">
         </div>
         <div class="col-md-6">
@@ -103,7 +103,7 @@
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
-      <strong>Messages from DynamoDB</strong>
+      <strong>Customer Data from DynamoDB</strong>
       <div id="messages">
 
       </div>
