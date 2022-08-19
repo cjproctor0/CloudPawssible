@@ -25,7 +25,7 @@ pipeline {
                 echo "deploying web app..."
                 script {
                     //def shellCmd = "bash ./server-cmds.sh hyrollproctor/my-repo:${IMAGE_NAME}"
-                    def dockerCmd = 'docker run -p 80:80 -d hyrollproctor/my-repo:webapp-1.1'
+                    def dockerCmd = 'docker run -p 8080:80 -d hyrollproctor/my-repo:webapp-1.1'
                     def ec2Instance = "ec2-user@54.227.77.200"
 
                     sshagent(['ec2-server-key']) {  // name in Jenkins credential store
