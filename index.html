@@ -8,7 +8,7 @@
 			.then((response) => {
                 console.log(response.body);
                 response.body.forEach(element => {
-                    document.getElementById("messages").innerHTML += "<p>"+element.firstName + " | " + element.lastName + " | " + element.breedType + " | " + element.birthDate + " | " + element.spayedNeutered + " | " + element.rabiesVaccine + " | " + element.bordetellaVaccine+" | " + element.petname + " | " + element.gender+"</p>"; // Adds each message to div
+                    document.getElementById("messages").innerHTML += "<p>"+element.firstName + " | " + element.lastName + " | " + element.breedType + " | " + element.birthDate + " | " + element.spayedNeutered + " | " + element.rabiesVaccine + " | " + element.bordetellaVaccine +" | " + element.petname + " | " + element.gender+"</p>"; // Adds each message to div
                 });
 			});
         }
@@ -40,7 +40,7 @@
 			.then(response => response.json())
 			.then((response) => {
 				console.log(response);
-                document.getElementById("messages").innerHTML += "<p>"+firstName + " | " + lastName + " | " + breedType + " | " + birthDate + " | " + spayedNeutered + " | " + rabiesVaccine + " | " + bordetellaVaccine+" | " + gender+" | " + petname+ "</p>"; // Add new message to message list
+                document.getElementById("messages").innerHTML += "<p>"+firstName + " | " + lastName + " | " + breedType + " | " + birthDate + " | " + spayedNeutered + " | " + rabiesVaccine + " | " + bordetellaVaccine +" | " + gender +" | " + petname+ "</p>"; // Add new message to message list
 			});
 		}
         getMessages(); // Calls get message on load
@@ -83,10 +83,10 @@
             <input type="text" class="form-control" id="birthDate" placeholder="MM/DD/YYYY">
         </div>
         <div class="col-md-4">
-            <label for="sprayedNeutered" class="form-label">Sprayed/Neutered?</label>
+            <label for="sprayedNeutered" class="form-label">Spayed/Neutered?</label>
             <select id="sprayedNeutered" class="form-select">
-                <option selected>YES, Sprayed or Neutered</option>
-                <option>NOT Sprayed or Neutered</option>
+                <option selected>YES, Spayed or Neutered</option>
+                <option>NOT Spayed or Neutered</option>
             </select>
         </div>
         <div class="col-md-4">
