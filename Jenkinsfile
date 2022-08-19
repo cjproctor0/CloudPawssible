@@ -29,6 +29,7 @@ pipeline {
                     sshagent(['ec2-server-key']) {  // name in Jenkins credential store
                         sh "ssh -o StrictHostKeyChecking=no ${ec2Instance} docker stop web-app"
                         sh "ssh -o StrictHostKeyChecking=no ${ec2Instance} docker rm web-app"
+                        sh "ssh -o StrictHostKeyChecking=no ${ec2Instance} docker rmi hyrollproctor/my-repo:webapp-1.1"
                         sh "ssh -o StrictHostKeyChecking=no ${ec2Instance} ${dockerCmd}"
                     }
                 }
