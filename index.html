@@ -8,31 +8,31 @@
 			.then((response) => {
                 console.log(response.body);
                 response.body.forEach(element => {
-                    document.getElementById("messages").innerHTML += "<p>"+element.firstName + " | " + element.lastName + " | " + element.breedType + " | " + element.birthDate + " | " + element.spayedNeutered + " | " + element.rabiesVaccine + " | " + element.bordetellaVaccine +" | " + element.petname + " | " + element.gender+"</p>"; // Adds each message to div
+                    document.getElementById("messages").innerHTML += "<p>"+element.firstname + " | " + element.lastname + " | " + element.breed + " | " + element.dateofbirth + " | " + element.spayedneutered + " | " + element.rabiesvaccine + " | " + element.bordetellavaccine +" | " + element.petname + " | " + element.gender+"</p>"; // Adds each message to div
                 });
 			});
         }
 		async function submitMessage() {
-            var firstName = document.getElementById("firstName").value;
-            var lastName = document.getElementById("lastName").value;
-            var breedType = document.getElementById("breedType").value;
-            var birthDate = document.getElementById("birthDate").value;
-            var spayedNeutered = document.getElementById("spayedNeutered").value;
-            var rabiesVaccine = document.getElementById("rabiesVaccine").value;
-            var bordetellaVaccine = document.getElementById("bordetellaVaccine").value;
-	    var gender = documentgetElementById("gender").value;
-	    var petname = documentgetElementById("petname").value;
+            var firstname = document.getElementById("firstname").value;
+            var lastname = document.getElementById("lastname").value;
+            var breed = document.getElementById("breed").value;
+            var dateofbirth = document.getElementById("dateofbirth").value;
+            var spayedneutered = document.getElementById("spayedneutered").value;
+            var rabiesvaccine = document.getElementById("rabiesvaccine").value;
+            var bordetellavaccine = document.getElementById("bordetellavaccine").value;
+	    var gender = document.getElementById("gender").value;
+	    var petname = document.getElementById("petname").value;
 			fetch( 'INSERT API GATEWAY LINK HERE',  {
                 method: 'POST',
                 body: JSON.stringify({
-                    "firstName": firstName,
-                    "lastName": lastName,
-                    "breedType": breedType,
-                    "birthDate": birthDate,
-                    "spayedNeutered": spayedNeutered,
-                    "rabiesVaccine": rabiesVaccine,
-                    "bordetellaVaccine": bordetellaVaccine
-		    "gender": gender
+                    "firstname": firstname,
+                    "lastname": lastname,
+                    "breed": breed,
+                    "dateofbirth": dateofbirth,
+                    "spayedneutered": spayedneutered,
+                    "rabiesvaccine": rabiesvaccine,
+                    "bordetellavaccine": bordetellavaccine,
+		    "gender": gender,
 		    "petname": petname
                 })
 			})
@@ -40,7 +40,7 @@
 			.then(response => response.json())
 			.then((response) => {
 				console.log(response);
-                document.getElementById("messages").innerHTML += "<p>"+firstName + " | " + lastName + " | " + breedType + " | " + birthDate + " | " + spayedNeutered + " | " + rabiesVaccine + " | " + bordetellaVaccine +" | " + gender +" | " + petname+ "</p>"; // Add new message to message list
+                document.getElementById("messages").innerHTML += "<p>"+firstname + " | " + lastname + " | " + breed + " | " + dateofbirth + " | " + spayedneutered + " | " + rabiesvaccine + " | " + bordetellavaccine +" | " + gender +" | " + petname+ "</p>"; // Add new message to message list
 			});
 		}
         getMessages(); // Calls get message on load
@@ -50,37 +50,26 @@
         <title>Cloud Pawssible</title>
     </head>
     <body>
-        <!--
-        <form onsubmit="submitMessage();return false;">
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name" value=""/><br>
-            <label for="email">Email:</label><br>
-            <input type="text" id="email" name="email" value=""/><br>
-            <label for="message">Message:</label><br>
-            <textarea id="message" name="message" value="" rows="10" cols="30"></textarea><br><br>
-            <input type="submit" class="btn btn-primary" value="Submit">
-      </form>
-      -->
       <form class="row g-3" onsubmit="submitMessage();return false;">
         <div class="col-md-6">
-          <label for="firstName" class="form-label">Customer First Name</label>
-          <input type="text" class="form-control" id="firstName">
+          <label for="firstname" class="form-label">Customer First Name</label>
+          <input type="text" class="form-control" id="firstname">
         </div>
         <div class="col-md-6">
-            <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastName">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname">
         </div>
         <div class="col-md-4">
             <label for="petName" class="form-label">Pet Name</label>
-            <input type="text" class="form-control" id="petName">
+            <input type="text" class="form-control" id="petname">
         </div>
         <div class="col-md-2">
-            <label for="breedType" class="form-label">Breed</label>
-            <input type="text" class="form-control" id="breedType">
+            <label for="breed" class="form-label">Breed</label>
+            <input type="text" class="form-control" id="breed">
         </div>
         <div class="col-md-3">
-            <label for="birthDate" class="form-label">Birth Date</label>
-            <input type="text" class="form-control" id="birthDate" placeholder="MM/DD/YYYY">
+            <label for="datebofbirth" class="form-label">Birth Date</label>
+            <input type="text" class="form-control" id="dateofbirth" placeholder="MM/DD/YYYY">
         </div>
 	 <div class="col-md-2">
             <label for="gender" class="form-label">Gender</label>
