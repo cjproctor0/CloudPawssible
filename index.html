@@ -8,7 +8,7 @@
 			.then((response) => {
                 console.log(response.body);
                 response.body.forEach(element => {
-                    document.getElementById("messages").innerHTML += "<p>"+element.firstName + " | " + element.lastName + " | " + element.breedType + " | " + element.birthDate + " | " + element.sprayedNeutered + " | " + element.rabiesVaccine + " | " + element.bordetellaVaccine+"</p>"; // Adds each message to div
+                    document.getElementById("messages").innerHTML += "<p>"+element.firstName + " | " + element.lastName + " | " + element.breedType + " | " + element.birthDate + " | " + element.spayedNeutered + " | " + element.rabiesVaccine + " | " + element.bordetellaVaccine+" | " + element.petname + " | " + element.gender+"</p>"; // Adds each message to div
                 });
 			});
         }
@@ -17,9 +17,11 @@
             var lastName = document.getElementById("lastName").value;
             var breedType = document.getElementById("breedType").value;
             var birthDate = document.getElementById("birthDate").value;
-            var sprayedNeutered = document.getElementById("sprayedNeutered").value;
+            var spayedNeutered = document.getElementById("spayedNeutered").value;
             var rabiesVaccine = document.getElementById("rabiesVaccine").value;
             var bordetellaVaccine = document.getElementById("bordetellaVaccine").value;
+	    var gender = documentgetElementById("gender").value;
+	    var petname = documentgetElementById("petname").value;
 			fetch( 'INSERT API GATEWAY LINK HERE',  {
                 method: 'POST',
                 body: JSON.stringify({
@@ -27,16 +29,18 @@
                     "lastName": lastName,
                     "breedType": breedType,
                     "birthDate": birthDate,
-                    "sprayedNeutered": sprayedNeutered,
+                    "spayedNeutered": spayedNeutered,
                     "rabiesVaccine": rabiesVaccine,
                     "bordetellaVaccine": bordetellaVaccine
+		    "gender": gender
+		    "petname": petname
                 })
 			})
             // Add new entries to the list on the page
 			.then(response => response.json())
 			.then((response) => {
 				console.log(response);
-                document.getElementById("messages").innerHTML += "<p>"+firstName + " | " + lastName + " | " + breedType + " | " + birthDate + " | " + sprayedNeutered + " | " + rabiesVaccine + " | " + bordetellaVaccine+"</p>"; // Add new message to message list
+                document.getElementById("messages").innerHTML += "<p>"+firstName + " | " + lastName + " | " + breedType + " | " + birthDate + " | " + spayedNeutered + " | " + rabiesVaccine + " | " + bordetellaVaccine+" | " + gender+" | " + petname+ "</p>"; // Add new message to message list
 			});
 		}
         getMessages(); // Calls get message on load
